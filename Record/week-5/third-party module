@@ -1,0 +1,25 @@
+// Import the third-party Express module
+const express = require('express');
+
+// Create an Express application
+const app = express();
+
+// Home route
+app.get('/', (req, res) => {
+    res.send('Welcome to Node.js');
+});
+
+// About route
+app.get('/about', (req, res) => {
+    res.send('This is the About Page');
+});
+
+// Student route
+app.get('/student', (req, res) => {
+    res.send('Student Information');
+});
+
+// Start the server
+app.listen(3000, () => {
+    console.log('Server running on port 3000');
+});
