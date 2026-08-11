@@ -1,0 +1,94 @@
+const fs = require('fs');
+
+console.log("===== NODE.JS FILE SYSTEM PROGRAM =====");
+
+// 1. Create and write a file
+console.log("\n1. Creating a file...");
+
+fs.writeFileSync(
+    'student.txt',
+    'Student Information\n' +
+    '-------------------\n' +
+    'Name: Roshini\n' +
+    'Course: Computer Science\n' +
+    'Subject: Node.js\n'
+);
+
+console.log("student.txt created successfully.");
+
+// 2. Read the file
+console.log("\n2. Reading the file...");
+
+let data = fs.readFileSync('student.txt', 'utf8');
+
+console.log("File contents:");
+console.log(data);
+
+// 3. Append data to the file
+console.log("3. Adding more information...");
+
+fs.appendFileSync(
+    'student.txt',
+    'College: Engineering College\n' +
+    'Year: Third Year\n'
+);
+
+console.log("Additional information added successfully.");
+
+// 4. Read the updated file
+console.log("\n4. Reading updated file...");
+
+data = fs.readFileSync('student.txt', 'utf8');
+
+console.log(data);
+
+// 5. Check whether the file exists
+console.log("5. Checking file...");
+
+if (fs.existsSync('student.txt')) {
+    console.log("student.txt exists.");
+} else {
+    console.log("student.txt does not exist.");
+}
+
+// 6. Get file information
+console.log("\n6. Getting file information...");
+
+const information = fs.statSync('student.txt');
+
+console.log("File size:", information.size, "bytes");
+console.log("Is it a file:", information.isFile());
+console.log("Is it a directory:", information.isDirectory());
+
+// 7. Rename the file
+console.log("\n7. Renaming the file...");
+
+fs.renameSync('student.txt', 'student_information.txt');
+
+console.log("File renamed successfully.");
+
+// 8. Check renamed file
+console.log("\n8. Checking renamed file...");
+
+if (fs.existsSync('student_information.txt')) {
+    console.log("student_information.txt exists.");
+}
+
+// 9. Read renamed file
+console.log("\n9. Reading renamed file...");
+
+const finalData = fs.readFileSync(
+    'student_information.txt',
+    'utf8'
+);
+
+console.log(finalData);
+
+// 10. Delete the file
+console.log("10. Deleting the file...");
+
+fs.unlinkSync('student_information.txt');
+
+console.log("File deleted successfully.");
+
+console.log("\n===== PROGRAM COMPLETED =====");
