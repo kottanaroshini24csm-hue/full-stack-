@@ -1,0 +1,222 @@
+// ======================================
+// 1. NORMAL FUNCTION
+// ======================================
+
+function add(a, b) {
+    return a + b;
+}
+
+console.log("Addition:", add(10, 20));
+
+
+// ======================================
+// 2. ARROW FUNCTION
+// ======================================
+
+const multiply = (a, b) => a * b;
+
+console.log("Multiplication:", multiply(5, 4));
+
+
+// ======================================
+// 3. CALLBACK FUNCTION
+// ======================================
+
+function calculate(a, b, callback) {
+
+    let result = a + b;
+
+    callback(result);
+}
+
+calculate(10, 20, (result) => {
+    console.log("Callback Result:", result);
+});
+
+
+// ======================================
+// 4. CALLBACK HELL
+// ======================================
+
+function login(callback) {
+
+    setTimeout(() => {
+        console.log("Login successful");
+        callback();
+    }, 1000);
+}
+
+function getUser(callback) {
+
+    setTimeout(() => {
+        console.log("User received");
+        callback();
+    }, 1000);
+}
+
+function getCourses(callback) {
+
+    setTimeout(() => {
+        console.log("Courses received");
+        callback();
+    }, 1000);
+}
+
+
+// Nested callbacks
+
+login(() => {
+
+    getUser(() => {
+
+        getCourses(() => {
+
+            console.log("Callback Hell completed");
+
+        });
+
+    });
+
+});
+
+
+// ======================================
+// 5. PROMISE
+// ======================================
+
+function getData() {
+
+    return new Promise((resolve, reject) => {
+
+        setTimeout(() => {
+
+            let success = true;
+
+            if (success) {
+                resolve("Promise successful");
+            } else {
+                reject("Promise failed");
+            }
+
+        }, 2000);
+
+    });
+}
+
+getData()
+    .then(data => {
+        console.log(data);
+    })
+    .catch(error => {
+        console.log(error);
+    });
+
+
+// ======================================
+// 6. PROMISE CHAINING
+// ======================================
+
+function loginPromise() {
+
+    return new Promise((resolve) => {
+
+        setTimeout(() => {
+            console.log("1. Login successful");
+            resolve();
+        }, 1000);
+
+    });
+}
+
+
+function getUserPromise() {
+
+    return new Promise((resolve) => {
+
+        setTimeout(() => {
+            console.log("2. User data received");
+            resolve();
+        }, 1000);
+
+    });
+}
+
+
+function getCoursesPromise() {
+
+    return new Promise((resolve) => {
+
+        setTimeout(() => {
+            console.log("3. Courses received");
+            resolve();
+        }, 1000);
+
+    });
+}
+
+
+function getResultPromise() {
+
+    return new Promise((resolve) => {
+
+        setTimeout(() => {
+            console.log("4. Result received");
+            resolve();
+        }, 1000);
+
+    });
+}
+
+
+// Promise Chain
+
+loginPromise()
+    .then(() => {
+        return getUserPromise();
+    })
+    .then(() => {
+        return getCoursesPromise();
+    })
+    .then(() => {
+        return getResultPromise();
+    })
+    .then(() => {
+        console.log("5. Promise Chain completed");
+    })
+    .catch((error) => {
+        console.log("Error:", error);
+    });
+
+
+// ======================================
+// 7. ASYNC / AWAIT
+// ======================================
+
+function fetchData() {
+
+    return new Promise((resolve) => {
+
+        setTimeout(() => {
+            resolve("Data fetched");
+        }, 1000);
+
+    });
+}
+
+
+async function displayData() {
+
+    try {
+
+        const result = await fetchData();
+
+        console.log(result);
+
+    } catch (error) {
+
+        console.log(error);
+
+    }
+}
+
+displayData();
