@@ -1,0 +1,15 @@
+// Create a Buffer from a string
+const buf = Buffer.from("Hi");
+
+// Display the Buffer
+console.log("Buffer:", buf);
+
+// Convert Buffer back to a string
+console.log("String:", buf.toString());
+
+// Display the size of the Buffer
+console.log("Size:", buf.length, "bytes");
+
+// Access individual bytes
+console.log("First byte:", buf[0]);
+console.log("Second byte:", buf[1]);
