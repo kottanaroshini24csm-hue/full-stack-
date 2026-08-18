@@ -1,0 +1,14 @@
+// Display the Process ID
+console.log("Process ID:", process.pid);
+
+// Display the Node.js version
+console.log("Node.js Version:", process.version);
+
+// Display the operating system
+console.log("Operating System:", process.platform);
+
+// Display the current working directory
+console.log("Current Directory:", process.cwd());
+
+// Display command-line arguments
+console.log("Arguments:", process.argv);
