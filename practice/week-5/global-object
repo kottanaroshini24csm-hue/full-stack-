@@ -1,0 +1,15 @@
+// Creating variables in the global object
+global.name = "Rahul";
+global.age = 20;
+
+// Accessing global variables
+console.log("Name:", global.name);
+console.log("Age:", global.age);
+
+// Creating a global function
+global.greet = function () {
+    console.log("Hello, " + global.name);
+};
+
+// Calling the global function
+global.greet();
