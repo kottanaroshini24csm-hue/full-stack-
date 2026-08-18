@@ -1,0 +1,11 @@
+let count = 1;
+
+const timer = setInterval(() => {
+    console.log("Message printed:", count);
+    count++;
+
+    if (count > 5) {
+        clearInterval(timer);
+        console.log("Interval stopped");
+    }
+}, 1000);
