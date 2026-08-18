@@ -1,0 +1,17 @@
+// console.log() - displays normal information
+console.log("Hello World");
+
+// console.warn() - displays a warning
+console.warn("This is a warning message");
+
+// console.error() - displays an error message
+console.error("This is an error message");
+
+// console.info() - displays information
+console.info("Node.js is running");
+
+// console.table() - displays data in table format
+console.table([
+    { name: "Rahul", age: 20 },
+    { name: "Anita", age: 21 }
+]);
