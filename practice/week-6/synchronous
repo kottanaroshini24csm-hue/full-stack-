@@ -1,0 +1,30 @@
+const fs = require('fs');
+
+try {
+    // 1. CREATE / WRITE
+    fs.writeFileSync('file.txt', 'Hello, this is my file!');
+    console.log('1. File created successfully!');
+
+    // 2. READ
+    const data = fs.readFileSync('file.txt', 'utf8');
+    console.log('2. File content:', data);
+
+    // 3. APPEND
+    fs.appendFileSync('file.txt', '\nThis is appended content.');
+    console.log('3. Content appended successfully!');
+
+    // 4. READ UPDATED FILE
+    const updatedData = fs.readFileSync('file.txt', 'utf8');
+    console.log('4. Updated content:');
+    console.log(updatedData);
+
+    // 5. DELETE
+    fs.unlinkSync('file.txt');
+    console.log('5. File deleted successfully!');
+
+} catch (err) {
+    console.error('Error:', err);
+}
+
+
+
