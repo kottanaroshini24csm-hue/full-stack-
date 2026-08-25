@@ -1,0 +1,52 @@
+const fs = require('fs');
+
+// 1. CREATE / WRITE FILE
+fs.writeFile('file.txt', 'Hello, this is my file!', (err) => {
+    if (err) {
+        console.error('Write Error:', err);
+        return;
+    }
+
+    console.log('1. File created successfully!');
+
+    // 2. READ FILE
+    fs.readFile('file.txt', 'utf8', (err, data) => {
+        if (err) {
+            console.error('Read Error:', err);
+            return;
+        }
+
+        console.log('2. File content:', data);
+
+        // 3. APPEND FILE
+        fs.appendFile('file.txt', '\nThis is appended content.', (err) => {
+            if (err) {
+                console.error('Append Error:', err);
+                return;
+            }
+
+            console.log('3. Content appended successfully!');
+
+            // 4. READ UPDATED FILE
+            fs.readFile('file.txt', 'utf8', (err, updatedData) => {
+                if (err) {
+                    console.error('Read Error:', err);
+                    return;
+                }
+
+                console.log('4. Updated content:');
+                console.log(updatedData);
+
+                // 5. DELETE FILE
+                fs.unlink('file.txt', (err) => {
+                    if (err) {
+                        console.error('Delete Error:', err);
+                        return;
+                    }
+
+                    console.log('5. File deleted successfully!');
+                });
+            });
+        });
+    });
+});
