@@ -1,0 +1,36 @@
+const fs = require('fs').promises;
+
+async function fileHandling() {
+    try {
+        // CREATE / WRITE
+        await fs.writeFile(
+            'file.txt',
+            'Hello, this is my file!'
+        );
+        console.log('File created successfully!');
+
+        // READ
+        const data = await fs.readFile('file.txt', 'utf8');
+        console.log('File content:', data);
+
+        // APPEND
+        await fs.appendFile(
+            'file.txt',
+            '\nThis is appended content.'
+        );
+        console.log('Content appended!');
+
+        // READ UPDATED FILE
+        const updatedData = await fs.readFile('file.txt', 'utf8');
+        console.log('Updated content:');
+        console.log(updatedData);
+
+        // DELETE
+        await fs.unlink('file.txt');
+        console.log('File deleted successfully!');
+
+    } catch (err) {
+        console.error('Error:', err);
+    }
+}
+fileHandling();
