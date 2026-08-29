@@ -1,0 +1,26 @@
+class A {
+    methodA() {
+        console.log("Method from A");
+    }
+}
+
+class B {
+    methodB() {
+        console.log("Method from B");
+    }
+}
+
+class C {
+    methodC() {
+        console.log("Method from C");
+    }
+}
+
+// Copy methods from A and B into C
+Object.assign(C.prototype, A.prototype, B.prototype);
+
+let obj = new C();
+
+obj.methodA();
+obj.methodB();
+obj.methodC();
