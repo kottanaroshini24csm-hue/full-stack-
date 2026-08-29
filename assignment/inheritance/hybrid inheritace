@@ -1,0 +1,34 @@
+class Animal {
+    eat() {
+        console.log("Animal is eating");
+    }
+}
+
+class Dog extends Animal {
+    bark() {
+        console.log("Dog is barking");
+    }
+}
+
+class Puppy extends Dog {
+    play() {
+        console.log("Puppy is playing");
+    }
+}
+
+class Cat extends Animal {
+    meow() {
+        console.log("Cat is meowing");
+    }
+}
+
+let p = new Puppy();
+
+p.eat();
+p.bark();
+p.play();
+
+let c = new Cat();
+
+c.eat();
+c.meow();
